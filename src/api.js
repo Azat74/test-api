@@ -6,4 +6,8 @@ const axiosInstance = axios.create({
   responseType: 'json',
 })
 
-const get = async () => await axiosInstance.get('/api/users?page=2')
+const get = async () => await axiosInstance.get('users?page=2')
+
+export default {
+  get
+}
