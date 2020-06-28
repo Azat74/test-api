@@ -1,10 +1,8 @@
 import { all, takeEvery, put, getContext } from 'redux-saga/effects'
-import { login as loginAction, setLogin } from './index'
+import { login as loginAction, setLogin, setError } from './index'
 
 function* handleLogin(action) {
   const axios = yield getContext('axios')
-
-  console.log(action)
   const { login, password } = action.payload
 
   try {
@@ -16,7 +14,9 @@ function* handleLogin(action) {
 
     yield put(setLogin({id, token}))
   } catch (e) {
-    console.log(e)
+    const { error } = e.response.data
+
+    yield put(setError({ error }))
   }
 }
 
