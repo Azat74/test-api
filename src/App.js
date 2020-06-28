@@ -1,23 +1,19 @@
 /* eslint-disable react/prop-types */
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import {
   BrowserRouter as Router,
   Route,
   Link,
   Switch,
   Redirect,
-  useHistory
 } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
-import PropTypes from 'prop-types'
-import { Counter } from './components/counter'
 import { LoginPage } from './pages/LoginPage'
 import { IndexPage } from './pages/IndexPage'
 import { ProfilePage } from './pages/ProfilePage'
 import { Page404 } from './pages/Page404'
 import {
   selectAuth,
-  login as loginAction,
   logout as logoutAction,
 } from './store/auth'
 import './App.css'
@@ -113,7 +109,6 @@ const Routes = (props) => {
           path={'/login'}
           exact
           key={'/login'}
-          loginAction={() => dispatch(loginAction())}
           component={LoginPage}
           isAuth={isAuth}
         />,
