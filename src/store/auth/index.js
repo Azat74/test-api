@@ -7,7 +7,7 @@ export const authSlice = createSlice({
     auth: false,
     id: '',
     token: '',
-    error: ''
+    error: '',
   },
   reducers: {
     login: () => {},
@@ -19,7 +19,7 @@ export const authSlice = createSlice({
         auth: true,
         error: '',
         id,
-        token
+        token,
       }
     },
     setError: (state, action) => {

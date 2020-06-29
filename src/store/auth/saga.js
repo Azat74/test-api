@@ -20,8 +20,6 @@ function* handleLogin(action) {
   }
 }
 
-export default function*() {
-  return yield all([
-    takeEvery(loginAction, handleLogin)
-  ])
+export default function* () {
+  return yield all([takeEvery(loginAction, handleLogin)])
 }

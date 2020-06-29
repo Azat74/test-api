@@ -1,7 +1,7 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { Form, Field } from "react-final-form";
-import { useDispatch, useSelector } from "react-redux";
+import React from 'react'
+import PropTypes from 'prop-types'
+import { Form, Field } from 'react-final-form'
+import { useDispatch, useSelector } from 'react-redux'
 import {
   Button,
   Form as FormStrap,
@@ -9,12 +9,12 @@ import {
   Label,
   Input,
   FormText,
-} from "reactstrap";
-import { login as loginAction, selectError } from "../../store/auth";
+} from 'reactstrap'
+import { login as loginAction, selectError } from '../../store/auth'
 
 export const LoginForm = () => {
-  const dispatch = useDispatch();
-  const error = useSelector(selectError);
+  const dispatch = useDispatch()
+  const error = useSelector(selectError)
 
   return (
     <Form
@@ -49,9 +49,9 @@ export const LoginForm = () => {
         </FormStrap>
       )}
     />
-  );
-};
+  )
+}
 
 LoginForm.propTypes = {
   loginAction: PropTypes.func,
-};
+}
