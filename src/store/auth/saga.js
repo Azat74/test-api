@@ -12,7 +12,7 @@ function* handleLogin(action) {
     })
     const { id, token } = response.data
 
-    yield put(setLogin({id, token}))
+    yield put(setLogin({ id, token }))
   } catch (e) {
     const { error } = e.response.data
 
@@ -20,8 +20,6 @@ function* handleLogin(action) {
   }
 }
 
-export default function*() {
-  return yield all([
-    takeEvery(loginAction, handleLogin)
-  ])
+export default function* () {
+  return yield all([takeEvery(loginAction, handleLogin)])
 }

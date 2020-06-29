@@ -12,43 +12,51 @@ import { LoginPage } from './pages/LoginPage'
 import { IndexPage } from './pages/IndexPage'
 import { ProfilePage } from './pages/ProfilePage'
 import { Page404 } from './pages/Page404'
-import {
-  selectAuth,
-  logout as logoutAction,
-} from './store/auth'
+import { selectAuth, logout as logoutAction } from './store/auth'
 import './App.css'
 
 function LoginRoute({ component: Component, isAuth, ...rest }) {
   return (
     <Route
       {...rest}
-      render={props => {
-
+      render={(props) => {
         if (!isAuth) {
           return <Component {...rest} />
         } else {
           const nextPath = () => {
-            return props.location.state?.from?.pathname ? props.location.state.from.pathname : '/'
+            return props.location.state?.from?.pathname
+              ? props.location.state.from.pathname
+              : '/'
           }
 
-          return <Redirect to={{ pathname: nextPath(), state: { from: props.location } }} />
+          return (
+            <Redirect
+              to={{ pathname: nextPath(), state: { from: props.location } }}
+            />
+          )
         }
       }}
     />
   )
 }
 
-function LogoutRoute({ isAuth, logoutAction, ...rest }) {
+function LogoutRoute({ logoutAction, ...rest }) {
   return (
     <Route
       {...rest}
-      render={props => {
+      render={(props) => {
         logoutAction()
         const nextPath = () => {
-          return props.location.state?.from?.pathname ? props.location.state.from.pathname : '/'
+          return props.location.state?.from?.pathname
+            ? props.location.state.from.pathname
+            : '/'
         }
-        
-        return <Redirect to={{ pathname: nextPath(), state: { from: props.location } }} />
+
+        return (
+          <Redirect
+            to={{ pathname: nextPath(), state: { from: props.location } }}
+          />
+        )
       }}
     />
   )
@@ -156,7 +164,11 @@ function App() {
             <Link key="/profile" to="/profile">
               Profile
             </Link>
-            {isAuth ? <Link key="/logout" to="/logout">Logout</Link> : undefined}
+            {isAuth ? (
+              <Link key="/logout" to="/logout">
+                Logout
+              </Link>
+            ) : undefined}
           </nav>
         </header>
         <main>

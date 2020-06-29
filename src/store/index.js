@@ -9,12 +9,12 @@ const defaultMiddleware = getDefaultMiddleware({ thunk: false })
 const sagaMiddleware = createSagaMiddleware({
   context: {
     axios: axiosInstance,
-  }
+  },
 })
 
 export default configureStore({
   reducer: {
-    ...rootReducer
+    ...rootReducer,
   },
   middleware: defaultMiddleware.concat([sagaMiddleware, reduxLogger]),
 })
