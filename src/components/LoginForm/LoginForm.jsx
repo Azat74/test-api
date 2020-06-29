@@ -10,21 +10,37 @@ export const LoginForm = () => {
 
   return (
     <Form
-      onSubmit={e => dispatch(loginAction(e))}
-      render={({ handleSubmit }) => <form onSubmit={handleSubmit}>
-        <div>
-          <Field name="login" component="input" type="text" placeholder="login" defaultValue="eve.holt@reqres.in" />
-        </div>
-        <div>
-          <Field name="password" component="input" type="password" placeholder="password" defaultValue="pistol" />
-        </div>
-        {errorText && <div>{errorText}</div>}
-        <button type="submit" disabled={!handleSubmit}>Submit</button>
-      </form>}
+      onSubmit={(e) => dispatch(loginAction(e))}
+      render={({ handleSubmit }) => (
+        <form onSubmit={handleSubmit}>
+          <div>
+            <Field
+              name="login"
+              component="input"
+              type="text"
+              placeholder="login"
+              defaultValue="eve.holt@reqres.in"
+            />
+          </div>
+          <div>
+            <Field
+              name="password"
+              component="input"
+              type="password"
+              placeholder="password"
+              defaultValue="pistol"
+            />
+          </div>
+          {errorText && <div>{errorText}</div>}
+          <button type="submit" disabled={!handleSubmit}>
+            Submit
+          </button>
+        </form>
+      )}
     />
   )
 }
 
 LoginForm.propTypes = {
-  loginAction: PropTypes.func
+  loginAction: PropTypes.func,
 }
