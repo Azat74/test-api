@@ -16,7 +16,7 @@ export default configureStore({
   reducer: {
     ...rootReducer
   },
-  middleware: defaultMiddleware.concat([sagaMiddleware, reduxLogger]),
+  middleware: defaultMiddleware.concat([sagaMiddleware]),
 })
 
 sagaMiddleware.run(mySaga)

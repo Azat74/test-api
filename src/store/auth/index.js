@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
+import { act } from 'react-dom/test-utils'
 
 export const authSlice = createSlice({
   name: 'auth',
@@ -10,8 +11,8 @@ export const authSlice = createSlice({
   },
   reducers: {
     login: () => {},
-    setLogin: (state, payload) => {
-      const { id, token } = payload
+    setLogin: (state, action) => {
+      const { id, token } = action.payload
 
       return {
         ...state,
@@ -21,8 +22,8 @@ export const authSlice = createSlice({
         token
       }
     },
-    setError: (state, payload) => {
-      const { error } = payload.payload
+    setError: (state, action) => {
+      const { error } = action.payload
 
       return {
         ...state,
